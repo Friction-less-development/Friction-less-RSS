@@ -1,0 +1,7 @@
+C:\Users\catsr\source\repos\Friction-less RSS\Friction-less RSS\obj\Release\Friction-less RSS.csprojAssemblyReference.cache
+C:\Users\catsr\source\repos\Friction-less RSS\Friction-less RSS\obj\Release\Friction-less RSS.csproj.CoreCompileInputs.cache
+C:\Users\catsr\source\repos\Friction-less RSS\Friction-less RSS\bin\Release\Friction-less RSS.exe.config
+C:\Users\catsr\source\repos\Friction-less RSS\Friction-less RSS\bin\Release\Friction-less RSS.exe
+C:\Users\catsr\source\repos\Friction-less RSS\Friction-less RSS\bin\Release\Friction-less RSS.pdb
+C:\Users\catsr\source\repos\Friction-less RSS\Friction-less RSS\obj\Release\Friction-less RSS.exe
+C:\Users\catsr\source\repos\Friction-less RSS\Friction-less RSS\obj\Release\Friction-less RSS.pdb

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Friction-less RSS", "Friction-less RSS\Friction-less RSS.csproj", "{5DDC61F3-F7ED-4A4B-89E4-0AF36DA570F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DDC61F3-F7ED-4A4B-89E4-0AF36DA570F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DDC61F3-F7ED-4A4B-89E4-0AF36DA570F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DDC61F3-F7ED-4A4B-89E4-0AF36DA570F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DDC61F3-F7ED-4A4B-89E4-0AF36DA570F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B01407D5-0860-4656-BD58-799DF109C642}
+	EndGlobalSection
+EndGlobal
