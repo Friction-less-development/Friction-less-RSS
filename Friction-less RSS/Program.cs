@@ -43,30 +43,29 @@ namespace FrictionlessRSS
 
         /// <summary>This function scrapes for new topics from the sitemap. It compares the topics to a binary file (the path is passed in to in the constructor) and adds any new topics it finds to that file as well as returns any new topics it finds.
         /// </summary>
-        public Dictionary<string, DateTime> ScrapeForNew()
+        public Dictionary<string, string> ScrapeForNew()
         {
 
-            XmlReader xmlReader = XmlReader.Create("https://friction-less.net/sitemap.xml");
+            XmlReader xmlReader = XmlReader.Create("https://friction-less.net/rss");
             List<String> listBox1 = new List<string>();
             /// <summary>
-            /// Topics as we'll see, are currently stored as a dictionary where the URL is the key, and lastMod 
-            /// (Last modified date) is the value. In the future, the value (Currently a DateTime) could be changed to a 
-            /// class if you want to store more data.
+            /// Topics as we'll see, are currently stored as a dictionary where the title is the key, and url 
+            /// is the value.
             /// </summary>
-            Dictionary<string, DateTime> topics = File.Exists(outputFile) ? ReadFromBinaryFile<Dictionary<string, DateTime>>(outputFile) : new Dictionary<string, DateTime>();
-            Dictionary<string, DateTime> newTopics = new Dictionary<string, DateTime>();
+            Dictionary<string, string> topics = File.Exists(outputFile) ? ReadFromBinaryFile<Dictionary<string, string>>(outputFile) : new Dictionary<string, string>();
+            Dictionary<string, string> newTopics = new Dictionary<string, string>();
 
             bool loc = false;
             bool lm = false;
             string locP = "";
-            DateTime lmP = new DateTime();
+            string lmP = "";
 
             while (xmlReader.Read())
             {
                 switch (xmlReader.NodeType)
                 {
                     case XmlNodeType.Element:
-                        if(xmlReader.Name == "loc")
+                        if(xmlReader.Name == "title")
                         {
                             loc = true; 
                             if(locP.Length > 0)
@@ -77,10 +76,10 @@ namespace FrictionlessRSS
                                     newTopics.Add(locP, lmP);
                                 }
                                 locP = "";
-                                lmP = new DateTime();
+                                lmP = "";
                             }
                         }
-                        if (xmlReader.Name == "lastmod")
+                        if (xmlReader.Name == "link")
                         {
                             lm = true;
                         }
@@ -92,7 +91,7 @@ namespace FrictionlessRSS
                             loc = false;
                         }
                         if(lm == true) {
-                            lmP = DateTime.Parse(xmlReader.Value);
+                            lmP = xmlReader.Value;
                             lm = false;
                         }
                         break;
@@ -103,13 +102,13 @@ namespace FrictionlessRSS
                 topics.Add(locP, lmP);
                 newTopics.Add(locP, lmP);
             }
-            WriteToBinaryFile<Dictionary<string, DateTime>>(outputFile, topics);
+            WriteToBinaryFile<Dictionary<string, string>>(outputFile, topics);
             return newTopics;
         }
 
         /// <summary>This function reads to the console the passed in topics.
         /// </summary>
-        public void ReadTopics(Dictionary<string, DateTime> dict)
+        public void ReadTopics(Dictionary<string, string> dict)
         {
             foreach (var item in dict.OrderBy(i => i.Key))
             {
